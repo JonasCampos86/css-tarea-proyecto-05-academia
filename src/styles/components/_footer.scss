@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins'    as m;
+
+footer{
+    background: linear-gradient(90deg,rgba(241, 252, 91, 1) 50%, rgba(109, 186, 255, 1) 100%);
+    color: v.$black;
+    margin-top: 20px;
+    padding-top: 30px;
+    text-align: center;
+    padding-bottom: 30px;
+}
