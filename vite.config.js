@@ -1,11 +1,31 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-  base: './', // Usa rutas relativas en los enlaces generados en html
+  base: './',
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        quienesSomos: resolve(__dirname, 'quienes-somos.html'),
+        cursos: resolve(__dirname, 'cursos.html'),
+        contacto: resolve(__dirname, 'contacto.html'),
+        login: resolve(__dirname, 'login.html'),
+        registro: resolve(__dirname, 'registro.html'),
+        avisoLegal: resolve(__dirname, 'aviso-legal.html'),
+        notFound: resolve(__dirname, '404.html'), // <-- AÑADIDO
+        // Subcarpetas
+        algoritmos: resolve(__dirname, 'blogs/algoritmos.html'),
+        diagramas: resolve(__dirname, 'blogs/diagramas.html'),
+        blockchain: resolve(__dirname, 'cursos/blockchain.html'),
+        fullstack: resolve(__dirname, 'cursos/full-stack.html'),
+      },
+    },
+  },
   server: {
-    host: true, // Permite acceder desde cualquier dispositivo de tu red (responsive en móvil/tablet)
+    host: true,
     watch: {
-      usePolling: true, // Recomendado para WSL: detecta cambios en archivos
+      usePolling: true,
     },
   },
 });
